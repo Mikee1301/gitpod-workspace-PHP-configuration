@@ -19,9 +19,15 @@
                 <th scope="col">ID</th>
                 <th scope="col">FIRSTNAME</th>
                 <th scope="col">LASTNAME</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">AGE</th>
+                <th scope="col">SALARY</th>
+                <th scope="col">ADDRESS</th>
+                <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody id="contactTable">
+                
             </tbody>
         </table>
         <div class="buttons">
@@ -38,7 +44,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <form>
+                <form class="text-align-right">
                 <input type="text" class="form-control mb-2" placeholder="Firstname">
                 <input type="text" class="form-control mb-2" placeholder="Lastname">
                 <input type="email" class="form-control mb-2" placeholder="Email">
@@ -51,8 +57,11 @@
                     </div>
                 </div>
                     <input type="Address" class="form-control mb-2" placeholder="Address">
+                <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                </div>
+                    
+                </form>
                 </div>
                 <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -82,11 +91,22 @@
         let data = await response.json();
         let record = ''
         data.forEach((element) => {
-            const rowElement = document.createElement('tr');
-             record += "<tr>";
-             record += "<td>" + element.id + "<td>";
-             record += "<td>" + element.firstName + "<td>";
-             record += "<td>" + element.lastName + "<td>";
+             record += `
+                    <tr>
+                        <td>${element.id}</td>
+                        <td>${element.firstName}</td>
+                        <td>${element.lastName}</td>
+                        <td>${element.email}</td>
+                        <td>${element.age}</td>
+                        <td>${element.salary}</td>
+                        <td>${element.address}</td>
+                        <td>
+                            <button type="button" class="btn btn-success">Success</button>
+                            <button type="button" class="btn btn-danger">Danger</button>
+                        </td>
+                    </tr>
+             `
+
         });
         contactTable.innerHTML = record;
       }

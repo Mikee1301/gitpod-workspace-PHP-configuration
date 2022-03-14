@@ -18,4 +18,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 Route::get('contact', 'App\Http\Controllers\Contact\ContactController@contact');
+Route::get('contact/{id}', 'App\Http\Controllers\Contact\ContactController@contactByID');
+Route::post('contact', 'App\Http\Controllers\Contact\ContactController@contactSave');    
+Route::put('contact/{contact}', 'App\Http\Controllers\Contact\ContactController@contactUpdate');
+Route::delete('contact/{contact}', 'App\Http\Controllers\Contact\ContactController@contactDelete');

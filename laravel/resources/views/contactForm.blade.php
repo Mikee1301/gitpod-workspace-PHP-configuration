@@ -12,7 +12,7 @@
   </head>
   <body>
     @if(\Session::has('success'))
-    <div class="alert"> 
+    <div class="alert alert-success mt-1" role="alert"> 
         <h4>{{\Session::get('success')}}</h4>
     </div>
     @endif

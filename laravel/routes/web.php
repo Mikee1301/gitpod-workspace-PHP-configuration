@@ -21,6 +21,11 @@ Route::get('/addContact','App\Http\Controllers\Contact\uiContactController@conta
 
 Route::post('/add_data','App\Http\Controllers\Contact\uiContactController@contactSave');
 
+Route::get('click_edit/{id}','App\Http\Controllers\Contact\uiContactController@contactEdit');
+
+Route::post('/update/{id}','App\Http\Controllers\Contact\uiContactController@contactUpdate');
+
+Route::get('/click_delete/{id}','App\Http\Controllers\Contact\uiContactController@contactDelete');
 
 Route::get('/', function () {
     return view('welcome');

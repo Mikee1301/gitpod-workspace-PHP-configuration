@@ -12,6 +12,11 @@
   </head>
   <body>
     <div class="container">
+        @if(\Session::has('success'))
+        <div class="alert alert-success mt-1" role="alert"> 
+            <h4>{{\Session::get('success')}}</h4>
+        </div>
+        @endif
         <h2>Users Contact</h2>
         <hr>
         <div class="buttons" style="text-align:right;">
@@ -42,8 +47,12 @@
                         <td>{{ $row->age}}</td>
                         <td>{{ $row->salary}}</td>
                         <td>{{ $row->address}}</td>
-                        <td></td>   
-                        <td></td>   
+                        <td> 
+                            <a href="click_edit/{{$row->id}}" class="btn btn-success">Edit</a>
+                        </td>   
+                        <td>
+                            <a href="   " class="btn btn-danger">Delete</a>
+                        </td>   
                     </tr>
                     @endforeach
                 </tbody>

@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/contactview','App\Http\Controllers\Contact\uiContactController@viewform'); 
+
+Route::get('/contactview','App\Http\Controllers\Contact\uiContactController@index');
+
+Route::get('/addContact','App\Http\Controllers\Contact\uiContactController@contactform');
+
+Route::post('/add_data','App\Http\Controllers\Contact\uiContactController@contactSave');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
